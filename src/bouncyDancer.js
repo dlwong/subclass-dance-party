@@ -1,6 +1,6 @@
 var makeBouncyDancer = function(top, left, timeBetweenSteps) {
   makeDancer.call(this, top, left, timeBetweenSteps);
-  this.$node = $('<span class="bouncy"></span>');
+  this.$node = $('<img src="tomatoDancer.png" class="dancer">');
 //   this.$node = $('<div class="bouncy"></div>');
 
   this.setPosition(top, left);
@@ -13,7 +13,7 @@ makeBouncyDancer.prototype.step = function() {
 //   console.log(this)
   var oldStep = makeDancer.prototype.step.bind(this);
   oldStep();
-  this.$node.toggle();
+  this.$node.slideToggle();
 
 };
 

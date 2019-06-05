@@ -1,6 +1,6 @@
 var makeShakyDancer = function(top, left, timeBetweenSteps) {
   makeDancer.call(this, top, left, timeBetweenSteps);
-  this.$node = $('<span class="shaky"></span>');
+  this.$node = $('<img src="pineappleDancer.png" class="shaky">');
   this.setPosition(top, left);
 
 };
@@ -11,7 +11,7 @@ makeShakyDancer.prototype.constructor = makeShakyDancer;
 makeShakyDancer.prototype.step = function() {
   var oldStep = makeDancer.prototype.step.bind(this);
   oldStep();
-  this.$node.toggle();
+  this.$node.slideToggle();
 
 };
 

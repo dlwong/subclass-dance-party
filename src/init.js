@@ -18,7 +18,6 @@ $(document).ready(function() {
 
   //////shaky dancer
   $('.addShakyButton').on('click', function(event) {
-    console.log(window.dancers)
     var shakyMakerFunctionName = $(this).data('shaky-maker-function-name');
 
     var shakyMakerFunction = window[shakyMakerFunctionName];
@@ -52,7 +51,7 @@ $(document).ready(function() {
   //////bouncy dancer
   $('.lineUp').on('click', function(event) {
     var styleSettings = {
-      top: $("body").width() * Math.random()
+      top: 500
     };
     
     for (var i = 0; i < window.dancers.length; i++) {

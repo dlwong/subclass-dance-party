@@ -1,6 +1,6 @@
 // Creates and returns a new dancer object that can step
 var makeDancer = function(top, left, timeBetweenSteps) {
-  this.$node = $('<span class="dancer"></span>');
+  this.$node = $('<img src="avocadoDancer.png" class="shaky">');
   this.timeBetweenSteps = timeBetweenSteps;
   this.top = top;
   this.left = left;
@@ -18,7 +18,7 @@ makeDancer.prototype.setPosition = function(top, left) {
     top: top,
     left: left
   };
-console.log(this)
+
   this.$node.css(styleSettings);
   // console.log(this.$node.css("top"));
 };
