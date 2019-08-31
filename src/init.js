@@ -1,33 +1,61 @@
 $(document).ready(function() {
   window.dancers = [];
 
+  /////blinky dancer
   $('.addDancerButton').on('click', function(event) {
-    /* This function sets up the click handlers for the create-dancer
-     * buttons on dancefloor.html. You should only need to make one small change to it.
-     * As long as the "data-dancer-maker-function-name" attribute of a
-     * class="addDancerButton" DOM node matches one of the names of the
-     * maker functions available in the global scope, clicking that node
-     * will call the function to make the dancer.
-     */
-
-    /* dancerMakerFunctionName is a string which must match
-     * one of the dancer maker functions available in global scope.
-     * A new object of the given type will be created and added
-     * to the stage.
-     */
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
 
-    // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
-    // make a dancer with a random position
-
-    var dancer = dancerMakerFunction(
+    var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+    window.dancers.push(dancer.$node);
   });
+
+  //////shaky dancer
+  $('.addShakyButton').on('click', function(event) {
+    var shakyMakerFunctionName = $(this).data('shaky-maker-function-name');
+
+    var shakyMakerFunction = window[shakyMakerFunctionName];
+
+    var shaker = new shakyMakerFunction(
+      $("body").height() * Math.random(),
+      $("body").width() * Math.random(),
+      Math.random() * 1000
+    );
+    $('body').append(shaker.$node);
+    window.dancers.push(shaker.$node);
+  });
+
+
 });
+  //////bouncy dancer
+  $('.addBouncyButton').on('click', function(event) {
+    var bouncyMakerFunctionName = $(this).data('bouncy-maker-function-name');
+
+    var bouncyMakerFunction = window[bouncyMakerFunctionName];
+
+    var bouncer = new bouncyMakerFunction(
+      $("body").height() * Math.random(),
+      $("body").width() * Math.random(),
+      Math.random() * 1000
+    );                                                                                                          
+    $('body').append(bouncer.$node);
+    window.dancers.push(bouncer.$node);
+  });
+
+  //////bouncy dancer
+  $('.lineUp').on('click', function(event) {
+    var styleSettings = {
+      top: 500
+    };
+    
+    for (var i = 0; i < window.dancers.length; i++) {
+      window.dancers[i].css(styleSettings)
+    }
+  });
 
